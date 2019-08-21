@@ -1,0 +1,19 @@
+{
+    "timeout": 60,
+    "source": {
+        "directories": [
+            "src\/"
+        ]
+    },
+    "logs": {
+        "text": "infection.log"
+    },
+    "mutators": {
+        "@default": true,
+        "MethodCallRemoval": {
+            "ignore": [
+                "AsyncBot\\Core\\Logger\\Factory"
+            ]
+        }
+    }
+}
