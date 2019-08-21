@@ -90,9 +90,6 @@ matrix:
       php: nightly
       env: dependencies=lowest infection=1
   allow_failures:
-    - name: '[REQUIRE_CHECK] With Lowest Dependencies'
-      php: '7.4snapshot'
-
     - name: '[CS] PHP 7.4 With Locked Dependencies'
       php: '7.4snapshot'
       env: cs=1
@@ -112,9 +109,6 @@ matrix:
       php: nightly
       env: cs=1 dependencies=highest
 
-    - name: '[UNIT] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
-      env: dependencies=lowest unit=1
     - name: '[UNIT] PHP Nightly With Locked Dependencies'
       php: nightly
       env: unit=1
@@ -125,9 +119,6 @@ matrix:
       php: nightly
       env: dependencies=lowest unit=1
 
-    - name: '[INTEGRATION] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
-      env: dependencies=lowest integration=1
     - name: '[INTEGRATION] PHP Nightly With Locked Dependencies'
       php: nightly
       env: integration=1
