@@ -15,9 +15,12 @@
         "php": "^7.4",
         "amphp/amp": "^2.2.0",
         "amphp/byte-stream": "^1.6",
+        "amphp/http-client": "^v4.0.0-rc4",
         "amphp/log": "^1.0",
         "monolog/monolog": "^1.24",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "daverandom/exceptional-json": "^1.0",
+        "opis/json-schema": "^1.0"
     },
     "require-dev": {
       "infection/infection": "^0.13.4",
