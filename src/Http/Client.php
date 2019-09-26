@@ -49,7 +49,7 @@ final class Client
         return call(function () use ($request) {
             try {
                 /** @var Response $response */
-                $response = $this->httpClient->request($request);
+                $response = yield $this->httpClient->request($request);
             } catch (HttpException $e) {
                 throw new NetworkError($request, 0, $e);
             }
