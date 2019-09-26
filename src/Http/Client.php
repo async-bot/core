@@ -30,7 +30,7 @@ final class Client
             /** @var Response $response */
             $response = yield $this->makeRequest($request);
 
-            $responseData = decode(yield $response->getBody()->buffer());
+            $responseData = decode(yield $response->getBody()->buffer(), true);
 
             if (!$jsonSchema->validate($responseData)) {
                 throw new UnexpectedJsonResponse($request);
