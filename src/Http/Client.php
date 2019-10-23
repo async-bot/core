@@ -12,6 +12,7 @@ use AsyncBot\Core\Http\Exception\UnexpectedJsonResponse;
 use AsyncBot\Core\Http\Validation\JsonSchema;
 use function Amp\call;
 use function ExceptionalJSON\decode;
+use function Room11\DOMUtils\domdocument_load_html;
 
 final class Client
 {
@@ -37,6 +38,22 @@ final class Client
             }
 
             return $responseData;
+        });
+    }
+
+    /**
+     * @param string $uri
+     * @return Promise<\DOMDocument>
+     */
+    public function requestHtml(string $uri): Promise
+    {
+        return call(function () use ($uri) {
+            $request = new Request($uri);
+
+            /** @var Response $response */
+            $response = yield $this->makeRequest($request);
+
+            return domdocument_load_html(yield $response->getBody()->buffer());
         });
     }
 
