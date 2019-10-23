@@ -13,6 +13,7 @@
   "prefer-stable": true,
   "require": {
     "php": "^7.4",
+    "ext-dom": "*",
     "amphp/amp": "^2.2.0",
     "amphp/byte-stream": "^1.6",
     "amphp/http-client": "^v4.0.0-rc4",
@@ -21,8 +22,7 @@
     "monolog/monolog": "^1.24",
     "opis/json-schema": "^1.0",
     "psr/log": "^1.1",
-    "room11/dom-utils": "^1.1",
-    "ext-dom": "*"
+    "room11/dom-utils": "^1.1"
   },
   "require-dev": {
     "infection/infection": "^0.13.4",

@@ -53,9 +53,7 @@ final class Client
             /** @var Response $response */
             $response = yield $this->makeRequest($request);
 
-            $responseData = domdocument_load_html(yield $response->getBody()->buffer());
-
-            return $responseData;
+            return domdocument_load_html(yield $response->getBody()->buffer());
         });
     }
 
