@@ -2,7 +2,7 @@
 
 namespace AsyncBot\Core\Http;
 
-use Amp\Http\Client\Client as HttpClient;
+use Amp\Http\Client\HttpClient;
 use Amp\Http\Client\HttpException;
 use Amp\Http\Client\Request;
 use Amp\Http\Client\Response;
@@ -23,6 +23,9 @@ final class Client
         $this->httpClient = $httpClient;
     }
 
+    /**
+     * @return Promise<array<mixed>>
+     */
     public function requestJson(string $uri, JsonSchema $jsonSchema): Promise
     {
         return call(function () use ($uri, $jsonSchema) {
