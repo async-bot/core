@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbe0042bc3714dde5a50ef7750e7d0e0",
+    "content-hash": "f2aab36a4a7fa3089beb9ecf9c1da24e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -144,22 +144,28 @@
         },
         {
             "name": "amphp/cache",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/cache.git",
-                "reference": "884c102a84fdda3eac71746878d55312319550f6"
+                "reference": "14d9fa01a2518eda31b10a421660b41a55249736"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/cache/zipball/884c102a84fdda3eac71746878d55312319550f6",
-                "reference": "884c102a84fdda3eac71746878d55312319550f6",
+                "url": "https://api.github.com/repos/amphp/cache/zipball/14d9fa01a2518eda31b10a421660b41a55249736",
+                "reference": "14d9fa01a2518eda31b10a421660b41a55249736",
                 "shasum": ""
             },
             "require": {
-                "amphp/amp": "^2"
+                "amphp/amp": "^2",
+                "amphp/sync": "^1.2",
+                "php": ">=7.1"
+            },
+            "conflict": {
+                "amphp/file": "<0.2 || >=2"
             },
             "require-dev": {
+                "amphp/file": "^1.0",
                 "amphp/php-cs-fixer-config": "dev-master",
                 "amphp/phpunit-util": "^1",
                 "phpunit/phpunit": "^6 | ^7 | ^8"
@@ -186,7 +192,7 @@
             ],
             "description": "A promise-aware caching API for Amp.",
             "homepage": "https://github.com/amphp/cache",
-            "time": "2019-09-21T08:52:12+00:00"
+            "time": "2019-11-29T18:47:04+00:00"
         },
         {
             "name": "amphp/dns",
@@ -435,16 +441,16 @@
         },
         {
             "name": "amphp/http-client",
-            "version": "v4.0.0-rc9",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/http-client.git",
-                "reference": "00498c20942a028ae0d8f42ea330383baf95885e"
+                "reference": "52762dc42d494921a78eaa0a491372302799e5c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/http-client/zipball/00498c20942a028ae0d8f42ea330383baf95885e",
-                "reference": "00498c20942a028ae0d8f42ea330383baf95885e",
+                "url": "https://api.github.com/repos/amphp/http-client/zipball/52762dc42d494921a78eaa0a491372302799e5c6",
+                "reference": "52762dc42d494921a78eaa0a491372302799e5c6",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +514,7 @@
                 "parallel",
                 "rest"
             ],
-            "time": "2019-11-20T18:23:14+00:00"
+            "time": "2019-11-22T21:25:21+00:00"
         },
         {
             "name": "amphp/log",
@@ -4364,9 +4370,18 @@
             "time": "2015-12-17T08:42:14+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "4.0-rc9",
+            "alias_normalized": "4.0.0.0-RC9",
+            "version": "9999999-dev",
+            "package": "amphp/http-client"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "amphp/http-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
