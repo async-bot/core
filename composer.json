@@ -17,7 +17,7 @@
     "amphp/amp": "^2.2.0",
     "amphp/byte-stream": "^1.6",
     "amphp/file": "^1.0",
-    "amphp/http-client": "dev-master as 4.0-rc9",
+    "amphp/http-client": "dev-master",
     "amphp/log": "^1.0",
     "daverandom/exceptional-json": "^1.0",
     "monolog/monolog": "^1.24",
