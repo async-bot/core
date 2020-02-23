@@ -3,13 +3,15 @@
 namespace AsyncBot\Core;
 
 use Amp\Loop;
+use AsyncBot\Core\Http\Server;
 use AsyncBot\Core\Logger\Logger;
 use AsyncBot\Core\Plugin\Runnable;
 
 final class Manager
 {
-    /** @var Logger */
     private Logger $logger;
+
+    private ?Server $webServer;
 
     /** @var array<Driver> */
     private array $bots = [];
@@ -17,9 +19,10 @@ final class Manager
     /** @var array<Runnable> */
     private array $runnables = [];
 
-    public function __construct(Logger $logger)
+    public function __construct(Logger $logger, ?Server $webServer = null)
     {
-        $this->logger = $logger;
+        $this->logger    = $logger;
+        $this->webServer = $webServer;
     }
 
     public function registerBot(Driver $bot): self
@@ -45,6 +48,10 @@ final class Manager
         $this->logger->startManager();
 
         Loop::run(function () {
+            if ($this->webServer) {
+                yield $this->webServer->start();
+            }
+
             foreach ($this->bots as $bot) {
                 yield $bot->start();
             }
