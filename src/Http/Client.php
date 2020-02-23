@@ -64,7 +64,7 @@ final class Client
      * @return Promise<Response>
      * @throws NetworkError
      */
-    private function makeRequest(Request $request): Promise
+    public function makeRequest(Request $request): Promise
     {
         return call(function () use ($request) {
             try {
