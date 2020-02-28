@@ -14,6 +14,7 @@
   "require": {
     "php": "^7.4",
     "ext-dom": "*",
+    "ext-xmlreader": "*",
     "amphp/amp": "^2.2.0",
     "amphp/byte-stream": "^1.6",
     "amphp/file": "^1.0",
