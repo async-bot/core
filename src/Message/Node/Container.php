@@ -61,7 +61,7 @@ abstract class Container implements Node
 
         foreach ($this->nodes as $node) {
             if ($node instanceof Text) {
-                $nodeContents .= html_entity_decode($node->toString(), ENT_QUOTES|ENT_SUBSTITUTE, 'utf-8');
+                $nodeContents .= htmlentities($node->toString(), ENT_QUOTES|ENT_SUBSTITUTE, 'utf-8');
 
                 continue;
             }

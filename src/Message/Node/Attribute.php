@@ -26,6 +26,6 @@ final class Attribute
 
     public function toString(): string
     {
-        return sprintf('%s="%s"', $this->name, html_entity_decode($this->value, ENT_QUOTES|ENT_SUBSTITUTE, 'utf-8'));
+        return sprintf('%s="%s"', $this->name, htmlentities($this->value, ENT_QUOTES|ENT_SUBSTITUTE, 'utf-8'));
     }
 }
