@@ -6,8 +6,8 @@ final class Message extends Container
 {
     public function setReplyAttribute(string $type, string $replyTo): void
     {
-        $this->addAttribute('type', $type);
-        $this->addAttribute('replyTo', $replyTo);
+        $this->addAttribute(new Attribute('type', $type));
+        $this->addAttribute(new Attribute('replyTo', $replyTo));
     }
 
     public function getName(): string

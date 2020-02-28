@@ -7,12 +7,12 @@ abstract class Container implements Node
     /** @var array<Node>  */
     protected array $nodes = [];
 
-    /** @var array<string,string> */
+    /** @var array<string,Attribute> */
     private array $attributes = [];
 
-    public function addAttribute(string $name, string $value): void
+    public function addAttribute(Attribute $attribute): void
     {
-        $this->attributes[$name] = $value;
+        $this->attributes[$attribute->getName()] = $attribute;
     }
 
     public function appendNode(Node $node): void
@@ -35,7 +35,7 @@ abstract class Container implements Node
         return isset($this->attributes[$name]);
     }
 
-    public function getAttribute(string $name): ?string
+    public function getAttribute(string $name): ?Attribute
     {
         if (!isset($this->attributes[$name])) {
             return null;
@@ -56,11 +56,7 @@ abstract class Container implements Node
             return sprintf('<%s>%s</%s>', $this->getName(), $nodeContents, $this->getName());
         }
 
-        $attributes = [];
-
-        foreach ($this->attributes as $name => $value) {
-            $attributes[] = sprintf('%s="%s"', $name, $value);
-        }
+        $attributes = array_map(fn (Attribute $attribute) => $attribute->toString(), $this->attributes);
 
         return sprintf('<%s %s>%s</%s>', $this->getName(), implode(' ', $attributes), $nodeContents, $this->getName());
     }

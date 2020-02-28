@@ -6,8 +6,8 @@ final class Mention extends Container
 {
     public function __construct(string $type, string $id)
     {
-        $this->addAttribute('type', $type);
-        $this->addAttribute('id', $id);
+        $this->addAttribute(new Attribute('type', $type));
+        $this->addAttribute(new Attribute('id', $id));
     }
 
     public function getName(): string

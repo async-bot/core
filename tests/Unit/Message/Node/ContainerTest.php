@@ -2,6 +2,7 @@
 
 namespace AsyncBot\CoreTest\Unit\Message\Node;
 
+use AsyncBot\Core\Message\Node\Attribute;
 use AsyncBot\Core\Message\Node\Message;
 use AsyncBot\Core\Message\Node\Text;
 use PHPUnit\Framework\TestCase;
@@ -26,8 +27,8 @@ final class ContainerTest extends TestCase
     {
         $message = new Message();
 
-        $message->addAttribute('attr1', 'value1');
-        $message->addAttribute('attr2', 'value2');
+        $message->addAttribute(new Attribute('attr1', 'value1'));
+        $message->addAttribute(new Attribute('attr2', 'value2'));
 
         $this->assertSame('<message attr1="value1" attr2="value2"></message>', $message->toString());
     }
@@ -67,6 +68,6 @@ final class ContainerTest extends TestCase
 
         $message->setReplyAttribute('stackoverflow', '48714113');
 
-        $this->assertSame('stackoverflow', $message->getAttribute('type'));
+        $this->assertSame('stackoverflow', $message->getAttribute('type')->getValue());
     }
 }

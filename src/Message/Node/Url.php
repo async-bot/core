@@ -6,7 +6,7 @@ final class Url extends Container
 {
     public function __construct(string $href)
     {
-        $this->addAttribute('href', $href);
+        $this->addAttribute(new Attribute('href', $href));
     }
 
     public function getName(): string
