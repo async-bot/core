@@ -10,14 +10,18 @@ abstract class Container implements Node
     /** @var array<string,Attribute> */
     private array $attributes = [];
 
-    public function addAttribute(Attribute $attribute): void
+    public function addAttribute(Attribute $attribute): self
     {
         $this->attributes[$attribute->getName()] = $attribute;
+
+        return $this;
     }
 
-    public function appendNode(Node $node): void
+    public function appendNode(Node $node): self
     {
         $this->nodes[] = $node;
+
+        return $this;
     }
 
     abstract public function getName(): string;

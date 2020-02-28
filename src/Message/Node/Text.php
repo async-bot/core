@@ -8,7 +8,7 @@ final class Text implements Node
 
     public function __construct(string $content)
     {
-        $this->content = $content;
+        $this->content = htmlspecialchars($content, ENT_QUOTES|ENT_SUBSTITUTE, 'utf-8');
     }
 
     public function toString(): string
