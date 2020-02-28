@@ -74,7 +74,7 @@ final class Parser
             ];
 
             if (in_array($this->xmlReader->nodeType, $textNodeTypes, true)) {
-                $container->appendNode(new Text($this->xmlReader->value));
+                $container->appendNode(new Text(html_entity_decode($this->xmlReader->value)));
 
                 continue;
             }
@@ -95,8 +95,8 @@ final class Parser
 
         if ($this->xmlReader->getAttribute('replyTo')) {
             $message->setReplyAttribute(
-                $this->xmlReader->getAttribute('type'),
-                $this->xmlReader->getAttribute('replyTo'),
+                html_entity_decode($this->xmlReader->getAttribute('type')),
+                html_entity_decode($this->xmlReader->getAttribute('replyTo')),
             );
         }
 
@@ -124,7 +124,7 @@ final class Parser
             throw new NodeMissingAttribute('url', 'href');
         }
 
-        return $this->parseNodeContainer(new Url($this->xmlReader->getAttribute('href')));
+        return $this->parseNodeContainer(new Url(html_entity_decode($this->xmlReader->getAttribute('href'))));
     }
 
     private function parseCodeNode(): Node
@@ -135,8 +135,8 @@ final class Parser
     private function parseMentionNode(): Node
     {
         return $this->parseNodeContainer(new Mention(
-            $this->xmlReader->getAttribute('type'),
-            $this->xmlReader->getAttribute('id'),
+            html_entity_decode($this->xmlReader->getAttribute('type')),
+            html_entity_decode($this->xmlReader->getAttribute('id')),
         ));
     }
 
