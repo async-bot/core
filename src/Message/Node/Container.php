@@ -17,6 +17,13 @@ abstract class Container implements Node
         return $this;
     }
 
+    public function prependNode(Node $node): self
+    {
+        array_unshift($this->nodes, $node);
+
+        return $this;
+    }
+
     public function appendNode(Node $node): self
     {
         $this->nodes[] = $node;
