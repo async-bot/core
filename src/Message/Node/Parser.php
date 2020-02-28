@@ -66,7 +66,14 @@ final class Parser
                 continue;
             }
 
-            if (in_array($this->xmlReader->nodeType, [\XMLReader::TEXT, \XMLReader::CDATA], true)) {
+            $textNodeTypes = [
+                \XMLReader::TEXT,
+                \XMLReader::CDATA,
+                \XMLReader::WHITESPACE,
+                \XMLReader::SIGNIFICANT_WHITESPACE,
+            ];
+
+            if (in_array($this->xmlReader->nodeType, $textNodeTypes, true)) {
                 $container->appendNode(new Text($this->xmlReader->value));
 
                 continue;

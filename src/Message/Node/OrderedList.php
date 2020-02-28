@@ -2,19 +2,8 @@
 
 namespace AsyncBot\Core\Message\Node;
 
-use AsyncBot\Core\Message\Exception\InvalidChildNode;
-
-final class OrderedList extends Container
+final class OrderedList extends ListType
 {
-    public function appendNode(Node $node): void
-    {
-        if (!$node instanceof ListItem) {
-            throw new InvalidChildNode($this, $node);
-        }
-
-        $this->nodes[] = $node;
-    }
-
     public function getName(): string
     {
         return 'ol';
