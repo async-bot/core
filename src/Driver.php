@@ -3,6 +3,7 @@
 namespace AsyncBot\Core;
 
 use Amp\Promise;
+use AsyncBot\Core\Message\Node\Message;
 
 interface Driver
 {
@@ -14,5 +15,5 @@ interface Driver
     /**
      * @return Promise<null>
      */
-    public function postMessage(string $message): Promise;
+    public function postMessage(Message $message): Promise;
 }
