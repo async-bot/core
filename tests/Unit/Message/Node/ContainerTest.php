@@ -31,4 +31,42 @@ final class ContainerTest extends TestCase
 
         $this->assertSame('<message attr1="value1" attr2="value2"></message>', $message->toString());
     }
+
+    public function testGetChildren(): void
+    {
+        $message = new Message();
+
+        $message->appendNode(new Text('test'));
+
+        $this->assertCount(1, $message->getChildren());
+        $this->assertInstanceOf(Text::class, $message->getChildren()[0]);
+    }
+
+    public function testHasAttributeReturnsFalseWhenItDoesNotExists(): void
+    {
+        $this->assertFalse((new Message())->hasAttribute('nonExisting'));
+    }
+
+    public function testHasAttributeReturnsTrueWhenItDoesExist(): void
+    {
+        $message = new Message();
+
+        $message->setReplyAttribute('stackoverflow', '48714113');
+
+        $this->assertTrue($message->hasAttribute('type'));
+    }
+
+    public function testGetAttributeReturnsNullWhenAttributeDoesNotExists(): void
+    {
+        $this->assertNull((new Message())->getAttribute('nonExisting'));
+    }
+
+    public function testGetAttributeReturnsAttributeWhenItExists(): void
+    {
+        $message = new Message();
+
+        $message->setReplyAttribute('stackoverflow', '48714113');
+
+        $this->assertSame('stackoverflow', $message->getAttribute('type'));
+    }
 }

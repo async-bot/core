@@ -22,6 +22,28 @@ abstract class Container implements Node
 
     abstract public function getName(): string;
 
+    /**
+     * @return array<Node>
+     */
+    public function getChildren(): array
+    {
+        return $this->nodes;
+    }
+
+    public function hasAttribute(string $name): bool
+    {
+        return isset($this->attributes[$name]);
+    }
+
+    public function getAttribute(string $name): ?string
+    {
+        if (!isset($this->attributes[$name])) {
+            return null;
+        }
+
+        return $this->attributes[$name];
+    }
+
     public function toString(): string
     {
         $nodeContents = '';
