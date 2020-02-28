@@ -54,6 +54,9 @@ final class Parser
             case 'li':
                 return $this->parseListItemNode();
 
+            case 'tag':
+                return $this->parseTagNode();
+
             default:
                 throw new InvalidNode($this->xmlReader->name);
         }
@@ -158,5 +161,16 @@ final class Parser
     private function parseListItemNode(): Node
     {
         return $this->parseNodeContainer(new ListItem());
+    }
+
+    private function parseTagNode(): Node
+    {
+        $tagNode = new Tag();
+
+        if ($this->xmlReader->getAttribute('type')) {
+            $tagNode->addAttribute(new Attribute('type', html_entity_decode($this->xmlReader->getAttribute('type'))));
+        }
+
+        return $this->parseNodeContainer($tagNode);
     }
 }
