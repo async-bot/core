@@ -6,10 +6,10 @@ use AsyncBot\Core\Message\Exception\InvalidChildNode;
 
 abstract class ListType extends Container
 {
-    public function appendNode(Node $node): void
+    public function appendNode(Node $node): self
     {
         if ($node instanceof Text) {
-            return;
+            return $this;
         }
 
         if (!$node instanceof ListItem) {
@@ -17,5 +17,7 @@ abstract class ListType extends Container
         }
 
         $this->nodes[] = $node;
+
+        return $this;
     }
 }
