@@ -57,6 +57,9 @@ final class Parser
             case 'tag':
                 return $this->parseTagNode();
 
+            case 'separator':
+                return $this->parseSeparatorNode();
+
             default:
                 throw new InvalidNode($this->xmlReader->name);
         }
@@ -172,5 +175,10 @@ final class Parser
         }
 
         return $this->parseNodeContainer($tagNode);
+    }
+
+    private function parseSeparatorNode(): Node
+    {
+        return new Separator();
     }
 }
