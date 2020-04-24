@@ -10,7 +10,7 @@ final class OrderedListTest extends TestCase
 {
     private OrderedList $orderedList;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->orderedList = new OrderedList();
     }

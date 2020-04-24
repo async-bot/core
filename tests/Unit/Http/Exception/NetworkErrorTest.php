@@ -10,7 +10,7 @@ final class NetworkErrorTest extends TestCase
 {
     private Request $request;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->request = new Request('https://example.com');
     }

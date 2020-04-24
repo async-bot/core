@@ -15,7 +15,7 @@ final class WebHookTest extends TestCase
 {
     private WebHook $webHook;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->webHook = new WebHook('GET', '/endpoint', $this->createMock(WebHookListener::class));
     }

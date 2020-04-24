@@ -9,7 +9,7 @@ final class ServerAddressTest extends TestCase
 {
     private ServerAddress $serverAddress;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->serverAddress = new ServerAddress('0.0.0.0', 80);
     }

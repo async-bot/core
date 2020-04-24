@@ -9,7 +9,7 @@ final class MessageTest extends TestCase
 {
     private Message $mention;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->mention = new Message();
     }

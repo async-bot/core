@@ -9,7 +9,7 @@ final class AttributeTest extends TestCase
 {
     private Attribute $attribute;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->attribute = new Attribute('name', 'value');
     }
