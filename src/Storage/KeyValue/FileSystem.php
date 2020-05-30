@@ -7,6 +7,7 @@ use Amp\Success;
 use AsyncBot\Core\Exception\Storage\EntryNotFound;
 use AsyncBot\Core\Storage\KeyValue;
 use function Amp\call;
+use function Amp\File\exists;
 use function Amp\File\get;
 use function Amp\File\put;
 use function ExceptionalJSON\decode;
@@ -89,6 +90,10 @@ final class FileSystem implements KeyValue
         }
 
         return call(function () {
+            if (!yield exists($this->filename)) {
+                return [];
+            }
+
             $this->data = decode(yield get($this->filename), true);
         });
     }
