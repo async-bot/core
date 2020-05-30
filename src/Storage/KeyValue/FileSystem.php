@@ -91,7 +91,7 @@ final class FileSystem implements KeyValue
 
         return call(function () {
             if (!yield exists($this->filename)) {
-                return [];
+                $this->data;
             }
 
             $this->data = decode(yield get($this->filename), true);
