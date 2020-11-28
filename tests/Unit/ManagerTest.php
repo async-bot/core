@@ -17,7 +17,7 @@ final class ManagerTest extends TestCase
 
     private Manager $manager;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->psrLogger = $this->createMock(LoggerInterface::class);
 

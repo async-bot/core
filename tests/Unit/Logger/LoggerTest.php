@@ -15,7 +15,7 @@ final class LoggerTest extends TestCase
 
     private Logger $logger;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->psrLogger = $this->createMock(LoggerInterface::class);
 

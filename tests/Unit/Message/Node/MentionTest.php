@@ -9,7 +9,7 @@ final class MentionTest extends TestCase
 {
     private Mention $mention;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->mention = new Mention('stackoverflow', 'peehaa');
     }

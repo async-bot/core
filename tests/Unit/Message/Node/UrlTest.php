@@ -9,7 +9,7 @@ final class UrlTest extends TestCase
 {
     private Url $url;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->url = new Url('https://example.com');
     }

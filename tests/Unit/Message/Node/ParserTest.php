@@ -22,7 +22,7 @@ final class ParserTest extends TestCase
 {
     private Parser $parser;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->parser = new Parser();
     }

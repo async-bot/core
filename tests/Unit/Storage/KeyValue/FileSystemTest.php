@@ -13,14 +13,14 @@ final class FileSystemTest extends TestCase
 
     private FileSystem $storage;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->originalData = file_get_contents(TEST_DATA_DIR . '/Storage/keyvalue-filesystem.json');
 
         $this->storage = new FileSystem(TEST_DATA_DIR . '/Storage/keyvalue-filesystem.json');
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         file_put_contents(TEST_DATA_DIR . '/Storage/keyvalue-filesystem.json', $this->originalData);
     }

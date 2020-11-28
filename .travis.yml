@@ -5,23 +5,23 @@ language: php
 matrix:
   include:
     - name: '[REQUIRE_CHECK] With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: require=1
     - name: '[REQUIRE_CHECK] With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: require=1 dependencies=lowest
     - name: '[REQUIRE_CHECK] With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: require=1 dependencies=highest
 
     - name: '[CS] PHP 7.4 With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1
     - name: '[CS] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1 dependencies=lowest
     - name: '[CS] PHP 7.4 With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1 dependencies=highest
     - name: '[CS] PHP Nightly With Locked Dependencies'
       php: nightly
@@ -34,13 +34,13 @@ matrix:
       env: cs=1 dependencies=highest
 
     - name: '[UNIT] PHP 7.4 With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: unit=1
     - name: '[UNIT] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=lowest unit=1
     - name: '[UNIT] PHP 7.4 With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=highest unit=1
     - name: '[UNIT] PHP Nightly With Locked Dependencies'
       php: nightly
@@ -53,13 +53,13 @@ matrix:
       env: dependencies=lowest unit=1
 
     - name: '[INTEGRATION] PHP 7.4 With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: integration=1
     - name: '[INTEGRATION] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=lowest integration=1
     - name: '[INTEGRATION] PHP 7.4 With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=highest integration=1
     - name: '[INTEGRATION] PHP Nightly With Locked Dependencies'
       php: nightly
@@ -72,13 +72,13 @@ matrix:
       env: dependencies=lowest integration=1
 
     - name: '[INFECTION] PHP 7.4 With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: infection=1
     - name: '[INFECTION] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=lowest infection=1
     - name: '[INFECTION] PHP 7.4 With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: dependencies=highest infection=1
     - name: '[INFECTION] PHP Nightly With Locked Dependencies'
       php: nightly
@@ -91,13 +91,13 @@ matrix:
       env: dependencies=lowest infection=1
   allow_failures:
     - name: '[CS] PHP 7.4 With Locked Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1
     - name: '[CS] PHP 7.4 With Lowest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1 dependencies=lowest
     - name: '[CS] PHP 7.4 With Highest Dependencies'
-      php: '7.4snapshot'
+      php: '7.4'
       env: cs=1 dependencies=highest
     - name: '[CS] PHP Nightly With Locked Dependencies'
       php: nightly

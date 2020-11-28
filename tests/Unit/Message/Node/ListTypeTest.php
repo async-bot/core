@@ -14,7 +14,7 @@ final class ListTypeTest extends TestCase
 {
     private ListType $list;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->list = new UnorderedList();
     }

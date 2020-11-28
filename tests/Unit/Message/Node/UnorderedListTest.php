@@ -10,7 +10,7 @@ final class UnorderedListTest extends TestCase
 {
     private UnorderedList $unorderedList;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->unorderedList = new UnorderedList();
     }
